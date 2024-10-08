@@ -309,13 +309,13 @@ public class Editor_texto_basico {
     }
     
     //la cantidad de lineas para el textpane (maldito metodo)
-    private int getLineCount() {
-        // Obtener el texto completo
-        String text = area.getText();
-        // Contar el número de saltos de línea
-        String[] lines = text.split("\n");
-        return lines.length; // Devolver el número de líneas
-    }
+  private int getLineCount() {
+    // Obtener el documento asociado al JTextPane
+    Document doc = area.getDocument();
+
+    // Contar el número de saltos de línea visuales (líneas lógicas)
+    return doc.getDefaultRootElement().getElementCount();
+}
 
     
 //MAIN
